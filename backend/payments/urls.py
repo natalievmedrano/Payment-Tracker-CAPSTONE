@@ -5,5 +5,7 @@ from payments import views
 
 urlpatterns = [
     path('',views.payments_list),
+    path('', views.add_payment),
+    path('<int:pk>/',views.payment_detail)
    
 ]
