@@ -25,16 +25,43 @@ def add_payment(request):
         serializer.save(user=request.user)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-
-
-@api_view(['PUT'])
+@api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
-def update_payment(request,payment_id):
+def user_payments(request):
+    if request.method == 'POST':
+        serializer = PaymentSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'GET':
+        payments = Payment.objects.filter(user_id=request.user.id)
+        serializer = PaymentSerializer(payments, many=True)
+        return Response(serializer.data)
+
+
+
+
+
+
+
+
+@api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes([IsAuthenticated])
+def payment_list(request,payment_id):
     payment = get_object_or_404(Payment, id=payment_id)
-    serializer = PaymentSerializer(payment, data=request.data)
-    serializer.is_valid(raise_exception=True)
-    serializer.save()
-    return Response(serializer.data)
+    if request.method == 'GET':
+        serializer = PaymentSerializer(payment, data=request.data)
+        serializer= PaymentSerializer(payment)
+        return Response(serializer.data)
+    elif request.method == 'PUT':
+         serializer = PaymentSerializer(payment, data=request.data)
+         serializer.is_valid(raise_exception=True)
+         serializer.save()
+         return Response(serializer.data)
+    elif request.method == 'DELETE':
+         payment.delete()
+         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 @api_view(['GET','PUT', 'DELETE'])
