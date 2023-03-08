@@ -11,7 +11,7 @@ from rest_framework import status
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
-def payments_list(request):
+def get_all_payments(request):
     payments = Payment.objects.all()
     serializer = PaymentSerializer(payments, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
