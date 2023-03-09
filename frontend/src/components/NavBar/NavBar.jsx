@@ -15,6 +15,9 @@ const Navbar = () => {
             <b>INFINITY FINANCE</b>
           </Link>
         </li>
+        <li className="pHistory">
+          <a href="">PAYMENT HISTORY</a>
+        </li>
         <li>
           {user ? (
             <button onClick={logoutUser}>Logout</button>

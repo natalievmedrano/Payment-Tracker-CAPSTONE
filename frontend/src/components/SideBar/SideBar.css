@@ -1,0 +1,13 @@
+.sideBar{
+    background-color:#693939;
+    color: white;
+    height: 700px;
+width: 200px;
+position: sticky;
+left: 0;
+top: 0;
+padding-top: 40px;
+display: block;
+justify-content: end;
+border-top: auto;
+}

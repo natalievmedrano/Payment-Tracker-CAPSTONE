@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import './HomePage.css'
 
 import axios from "axios";
 import SideBar from "../../components/SideBar/SideBar";
@@ -11,6 +12,7 @@ const HomePage = () => {
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
   const [user, token] = useAuth();
   const [payments, setPayments] = useState([]);
+  const[months, setMonths] = useState([]);
 
   useEffect(() => {
     getAllPayments();
@@ -22,12 +24,12 @@ const HomePage = () => {
       console.log(response.data)
       setPayments(response.data);
     } catch (exception) {
-      console.log(`EROR in getVideoGames EXCEPTION: ${exception}`);
+      console.log(`ERROR in getAllPayments EXCEPTION: ${exception}`);
     }
   }
   return (
     <div className="container">
-      <SideBar/>
+      <SideBar months={months}/>
     </div>
   );
 };
