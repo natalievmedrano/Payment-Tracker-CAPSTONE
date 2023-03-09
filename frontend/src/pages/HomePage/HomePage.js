@@ -18,13 +18,39 @@ const HomePage = () => {
     getAllPayments();
   }, []);
 
-  async function getAllPayments() {
+  async function getAllPayments(payment_id) {
     try {
       const response = await axios.get("http://127.0.0.1:8000/api/payments/all/");
       console.log(response.data)
       setPayments(response.data);
     } catch (exception) {
       console.log(`ERROR in getAllPayments EXCEPTION: ${exception}`);
+    }
+  }
+
+  async function addPayment(newPayment){
+  
+      let response = await axios.post("http://127.0.0.1:8000/api/payments/", newPayment);
+      if (response.status === 201) {
+        await getAllPayments();
+      }
+    
+      console.log(response.data)
+      
+  
+  }
+
+  async function updatePayment(){
+    let response = await axios.put(`http://127.0.0.1:8000/api/payments/3/`)
+    if (response.status === 200) {
+      await getAllPayments();
+    }
+  }
+
+  async function deletePayment(){
+    let response = await axios.delete(`http://127.0.0.1:8000/api/payments/3/`)
+    if(response.status === 204){
+      await getAllPayments();
     }
   }
   return (
