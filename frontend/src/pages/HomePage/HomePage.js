@@ -2,9 +2,11 @@ import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import './HomePage.css'
+import { Container } from "react-dom";
 
 import axios from "axios";
 import SideBar from "../../components/SideBar/SideBar";
+import PaymentCard from "../../components/PaymentCard/PaymentCard";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -55,7 +57,8 @@ const HomePage = () => {
   }
   return (
     <div className="container">
-      <SideBar months={months}/>
+     <SideBar/>
+      <PaymentCard/>
     </div>
   );
 };
