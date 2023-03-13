@@ -2,11 +2,12 @@ import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import './HomePage.css'
-import { Container } from "react-dom";
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 import SideBar from "../../components/SideBar/SideBar";
 import PaymentCard from "../../components/PaymentCard/PaymentCard";
+import PaymentsTable from "../../components/PayementsTable/PaymentsTable";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -14,51 +15,36 @@ const HomePage = () => {
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
   const [user, token] = useAuth();
   const [payments, setPayments] = useState([]);
-  const[months, setMonths] = useState([]);
 
-  useEffect(() => {
-    getAllPayments();
-  }, []);
+ 
 
-  async function getAllPayments(payment_id) {
-    try {
-      const response = await axios.get("http://127.0.0.1:8000/api/payments/all/");
-      console.log(response.data)
-      setPayments(response.data);
-    } catch (exception) {
-      console.log(`ERROR in getAllPayments EXCEPTION: ${exception}`);
-    }
-  }
-
-  async function addPayment(newPayment){
-  
-      let response = await axios.post("http://127.0.0.1:8000/api/payments/", newPayment);
-      if (response.status === 201) {
-        await getAllPayments();
+  useEffect(()=> {
+    const fetchPayments = async() => {
+      try {
+        let response = await axios.get("http://127.0.0.1:8000/api/payments/all/", {
+          headers: {
+            Authorization: "Bearer" + token,
+          },
+        });
+        console.log(response.data)
+        setPayments(response.data)
+      } catch (error) {
+        console.log(error.message)
       }
-    
-      console.log(response.data)
-      
-  
-  }
+    };
+    fetchPayments();
+  },[token]);
 
-  async function updatePayment(){
-    let response = await axios.put(`http://127.0.0.1:8000/api/payments/3/`)
-    if (response.status === 200) {
-      await getAllPayments();
-    }
-  }
 
-  async function deletePayment(){
-    let response = await axios.delete(`http://127.0.0.1:8000/api/payments/3/`)
-    if(response.status === 204){
-      await getAllPayments();
-    }
-  }
   return (
-    <div className="container">
+    <div className="flex">
      <SideBar/>
-      <PaymentCard/>
+
+    <div className="container">
+      <h1> Hello {user.username}!</h1>
+      <Link to= "/addpayment"> Add Payment</Link>
+      <PaymentsTable payments={payments}/>
+    </div>
     </div>
   );
 };

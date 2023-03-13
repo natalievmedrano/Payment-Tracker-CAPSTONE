@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import AddPaymentForm from '../AddPaymentForm/AddPaymentForm';
 import './SideBar.css'
+import { Link } from 'react-router-dom';
 
 
-const SideBar = ({}) => {
+const SideBar = ({payments}) => {
     return ( <div className='sideBar'>
-        <button>ADD PAYMENT</button>
+
+
+
         <p>January</p>
         <p>February</p>
         <p>March</p>
@@ -20,5 +23,5 @@ const SideBar = ({}) => {
         <p>December</p>
     </div> );
 }
- <AddPaymentForm/>
+
 export default SideBar;
