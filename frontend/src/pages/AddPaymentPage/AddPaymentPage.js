@@ -85,7 +85,7 @@ const AddPaymentPage = () => {
             onChange={handleChange}
           />
         </label>
-        <button onSubmit={handleSubmit}>Add Payment</button>
+        <button>Add Payment</button>
       </form>
     </div>
   );

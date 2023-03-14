@@ -32,7 +32,9 @@ button:hover {
   color: white;
   background-color: #cf9c9c;
 }
-
+body{
+  background-color: #AA7d7d;
+}
 .container {
   margin:0;
   max-width: 600px;
