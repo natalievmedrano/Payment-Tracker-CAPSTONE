@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+import SearchBar from "../Searchbar/SearchBar";
 import "./NavBar.css";
 
 const Navbar = () => {
@@ -14,10 +15,11 @@ const Navbar = () => {
           <Link to="/" style={{ textDecoration: "none", color: "pink" }}>
             <b>INFINITY FINANCE</b>
           </Link>
-        </li>
-        <li className="pHistory">
+        </li> <div ><li className="pHistory">
           <a href="">PAYMENT HISTORY</a>
-        </li>
+        </li> </div>
+        <li><SearchBar/></li>
+        
         <li>
           {user ? (
             <button onClick={logoutUser}>Logout</button>
