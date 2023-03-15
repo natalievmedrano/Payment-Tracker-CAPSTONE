@@ -5,7 +5,7 @@ const SearchBar = ({value, onChange, onSubmit}) => {
   // console.log(searchKeyword)
   return (
     <div className="search">
-      <label>Search for Payments!</label>
+      <label>Search for Payments by Month!</label>
       <input
         type="search"
         onChange={(event) => onChange(event.target.value)}

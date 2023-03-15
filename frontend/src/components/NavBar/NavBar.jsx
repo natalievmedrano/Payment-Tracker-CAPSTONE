@@ -18,7 +18,6 @@ const Navbar = () => {
         </li> <div ><li className="pHistory">
           <a href="">PAYMENT HISTORY</a>
         </li> </div>
-        <li><SearchBar/></li>
         
         <li>
           {user ? (

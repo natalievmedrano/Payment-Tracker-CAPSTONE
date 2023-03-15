@@ -7,9 +7,22 @@ const PaymentsTable = ({ payments = [] }) => {
 
   let mappedPayments = filteredPayments.map((payment) => (
     <div className="flex">
-      <div>{payment.payment_type}</div>
-      <div>{payment.payment_amount}</div>
-      <div>{payment.payment_due_date}</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Payment Name</th>
+            <th>Payment Amount</th>
+            <th>Payment Due Date</th>
+            <th>Payment Status</th>
+          </tr>
+        </thead>
+        <tbody>
+      <div> <td>{payment.payment_type}</td></div>
+      <div><td>{payment.payment_amount}</td></div>
+      <div><td>{payment.payment_due_date}</td></div>
+      <div><td>{payment.verify_payment}</td></div>
+      </tbody>
+      </table>
     </div>
   ));
 
