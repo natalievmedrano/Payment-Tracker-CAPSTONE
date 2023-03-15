@@ -1,14 +1,31 @@
 import React, { useState } from "react";
+import SearchBar from "../Searchbar/SearchBar";
 
 const PaymentsTable = ({ payments = [] }) => {
-  let mappedPayments = payments.map((payment) => (
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const [filteredPayments, setFilteredPayments] = useState(payments);
+
+  let mappedPayments = filteredPayments.map((payment) => (
     <div className="flex">
       <div>{payment.payment_type}</div>
       <div>{payment.payment_amount}</div>
       <div>{payment.payment_due_date}</div>
     </div>
   ));
-  return <div>{mappedPayments}</div>;
+
+  const handleSearch = () => {
+    const newFilteredPayments = payments.filter(payment =>
+      payment.month.toLowerCase().includes(searchKeyword.toLowerCase()),
+    );
+    setFilteredPayments(newFilteredPayments)
+  };
+
+  return (
+    <div>
+      <SearchBar value={searchKeyword} onChange={setSearchKeyword} onSubmit={handleSearch} />{" "}
+      {mappedPayments}
+    </div>
+  );
 
   // <div>
   //   <td>

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 
-const SearchBar = ({}) => {
-  const [searchKeyword, setSearchKeyword] = useState("");
+const SearchBar = ({value, onChange, onSubmit}) => {
 
-  console.log(searchKeyword)
+  // console.log(searchKeyword)
   return (
-    <div>
+    <div className="search">
+      <label>Search for Payments!</label>
       <input
         type="search"
-        onChange={(event) => setSearchKeyword(event.target.value)}
-        value={searchKeyword}
+        onChange={(event) => onChange(event.target.value)}
+        value={value}
       />
-      <button>Search</button>
+      <button onClick={onSubmit}>Search</button>
     </div>
   );
 };
