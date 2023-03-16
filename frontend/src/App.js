@@ -33,7 +33,7 @@ function App() {
           path="/addpayment"
           element={
             <PrivateRoute>
-              <AddPaymentPage/>
+              <AddPaymentPage />
             </PrivateRoute>
           }
         />

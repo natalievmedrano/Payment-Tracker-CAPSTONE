@@ -1,9 +1,23 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import SearchBar from "../Searchbar/SearchBar";
+
+import './PaymentsTable.css'
 
 const PaymentsTable = ({ payments = [] }) => {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [filteredPayments, setFilteredPayments] = useState(payments);
+  const[deletedPayments, setDeletedPayments] = useState(payments);
+
+
+
+  async function deletePayments(id) {
+    let deletePayment = await axios.delete(
+      `http://127.0.0.1:8000/api/payments/${id}/`
+    );
+    setDeletedPayments(deletePayment.data)
+  }
 
   let mappedPayments = filteredPayments.map((payment) => (
     <div className="flex">
@@ -17,25 +31,40 @@ const PaymentsTable = ({ payments = [] }) => {
           </tr>
         </thead>
         <tbody>
-      <div> <td>{payment.payment_type}</td></div>
-      <div><td>{payment.payment_amount}</td></div>
-      <div><td>{payment.payment_due_date}</td></div>
-      <div><td>{payment.verify_payment}</td></div>
-      </tbody>
+          <div>
+            {" "}
+            <td>{payment.payment_type}</td>
+          </div>
+          <div>
+            <td>{payment.payment_amount}</td>
+          </div>
+          <div>
+            <td>{payment.payment_due_date}</td>
+          </div>
+          <div>
+            <td>{payment.verify_payment}</td>
+          </div>
+          <button className="update">update</button>
+          <button className="delete" onClick={deletePayments()}>delete</button>
+        </tbody>
       </table>
     </div>
   ));
 
   const handleSearch = () => {
-    const newFilteredPayments = payments.filter(payment =>
-      payment.month.toLowerCase().includes(searchKeyword.toLowerCase()),
+    const newFilteredPayments = payments.filter((payment) =>
+      payment.month.toLowerCase().includes(searchKeyword.toLowerCase())
     );
-    setFilteredPayments(newFilteredPayments)
+    setFilteredPayments(newFilteredPayments);
   };
 
   return (
     <div>
-      <SearchBar value={searchKeyword} onChange={setSearchKeyword} onSubmit={handleSearch} />{" "}
+      <SearchBar
+        value={searchKeyword}
+        onChange={setSearchKeyword}
+        onSubmit={handleSearch}
+      />{" "}
       {mappedPayments}
     </div>
   );

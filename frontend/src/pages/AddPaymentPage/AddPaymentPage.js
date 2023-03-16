@@ -16,7 +16,7 @@ let intialPaymentInfo = {
 const AddPaymentPage = () => {
   const [user, token] = useAuth();
   const navigate = useNavigate();
-  const [formData, handleChange, handleSubmit] = useCustomForm(
+  const [formData, handleInputChange, handleSubmit] = useCustomForm(
     intialPaymentInfo,
     addPayment
   );
@@ -46,7 +46,7 @@ const AddPaymentPage = () => {
             type="text"
             name="Payment Name"
             value={formData.payment_name}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </label>
         <label>
@@ -55,7 +55,7 @@ const AddPaymentPage = () => {
             type="text"
             name="Payment Amount"
             value={formData.payment_amount}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </label>
         <label>
@@ -64,7 +64,7 @@ const AddPaymentPage = () => {
             type="text"
             name="Payment Month"
             value={formData.payment_month}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </label>
         <label>
@@ -73,7 +73,7 @@ const AddPaymentPage = () => {
             type="text"
             name="Payment Year"
             value={formData.payment_year}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </label>
         <label>
@@ -82,7 +82,7 @@ const AddPaymentPage = () => {
             type="text"
             name="Payment Due Date"
             value={formData.payment_DueDate}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </label>
         <button>Add Payment</button>
