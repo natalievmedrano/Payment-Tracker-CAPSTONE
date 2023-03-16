@@ -38,7 +38,7 @@ const HomePage = () => {
 
   return (
     <div className="flex">
-     <SideBar/>
+     <SideBar payments={payments}/>
 
     <div className="container">
       <h1> Hello {user.username}!</h1>
