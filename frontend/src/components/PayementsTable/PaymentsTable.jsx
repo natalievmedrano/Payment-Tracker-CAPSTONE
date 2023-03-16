@@ -3,21 +3,24 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import SearchBar from "../Searchbar/SearchBar";
 
-import './PaymentsTable.css'
+import "./PaymentsTable.css";
 
 const PaymentsTable = ({ payments = [] }) => {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [filteredPayments, setFilteredPayments] = useState(payments);
-  const[deletedPayments, setDeletedPayments] = useState(payments);
+  const [active, setActive] = useState(false);
 
+  const handleClick = () => {
+    setActive(!active);
+  };
 
-
-  async function deletePayments(id) {
-    let deletePayment = await axios.delete(
-      `http://127.0.0.1:8000/api/payments/${id}/`
-    );
-    setDeletedPayments(deletePayment.data)
-  }
+  // async function deletePayments(id) {
+  //   let response = await axios.delete(
+  //     `http://127.0.0.1:8000/api/payments/${id}/`
+  //   );
+  //   console.log("DELETED:", response.data);
+  //   setDeletedPayments(response.data);
+  // }
 
   let mappedPayments = filteredPayments.map((payment) => (
     <div className="flex">
@@ -42,10 +45,12 @@ const PaymentsTable = ({ payments = [] }) => {
             <td>{payment.payment_due_date}</td>
           </div>
           <div>
-            <td>{payment.verify_payment}</td>
+            <td onClick={handleClick} style={{color: active ? "green" : "red"}}>{payment.verify_payment}</td>
           </div>
           <button className="update">update</button>
-          <button className="delete" onClick={deletePayments()}>delete</button>
+          <button className="delete">
+            delete
+          </button>
         </tbody>
       </table>
     </div>
@@ -68,22 +73,6 @@ const PaymentsTable = ({ payments = [] }) => {
       {mappedPayments}
     </div>
   );
-
-  // <div>
-  //   <td>
-  //     <tr>Payment Name
-  //         {payments.payment_due_date}
-  //     </tr>
-  //     <br />
-  //     <tr>Payment Due Date</tr>
-  //     <br />
-  //     <tr>Payment Month</tr>
-  //     <br />
-  //     <tr>Payment Year</tr>
-  //     <br />
-  //     <tr> Payment PAID?</tr>
-  //   </td>
-  // </div>
 };
 
 export default PaymentsTable;
