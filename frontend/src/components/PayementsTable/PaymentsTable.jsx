@@ -9,6 +9,7 @@ const PaymentsTable = ({ payments = [] }) => {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [filteredPayments, setFilteredPayments] = useState(payments);
   const [active, setActive] = useState(false);
+  //const[deletedPayments, setDeletedPayments]= useState=([])
 
   const handleClick = () => {
     setActive(!active);
@@ -47,7 +48,7 @@ const PaymentsTable = ({ payments = [] }) => {
           <div>
             <td onClick={handleClick} style={{color: active ? "green" : "red"}}>{payment.verify_payment}</td>
           </div>
-          <button className="delete">
+          <button className="submit" >
             delete
           </button>
         </tbody>
