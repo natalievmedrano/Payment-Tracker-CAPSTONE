@@ -6,25 +6,27 @@ import useCustomForm from "../../hooks/useCustomForm";
 import { useNavigate } from "react-router-dom";
 
 let intialPaymentInfo = {
-  payment_name: "",
+  payment_type: "",
   payment_amount: "",
-  payment_month: "",
-  payment_year: "",
-  payment_DueDate: "",
+  month: "",
+  year: "",
+  payment_due_date: "",
 };
 
 const AddPaymentPage = () => {
   const [user, token] = useAuth();
   const navigate = useNavigate();
-  const [formData, handleInputChange, handleSubmit] = useCustomForm(
+  const [formData, handleInputChange,handleSubmit] = useCustomForm(
     intialPaymentInfo,
     addPayment
   );
 
+
+
   async function addPayment() {
     try {
       let response = await axios.post(
-        "http://127.0.0.1:8000/api/payments/",
+        "http://127.0.0.1:8000/api/",
         formData,
         {
           headers: {
@@ -44,8 +46,8 @@ const AddPaymentPage = () => {
           Payment Name:{" "}
           <input
             type="text"
-            name="Payment Name"
-            value={formData.payment_name}
+            name="payment_type"
+            value={formData.payment_type}
             onChange={handleInputChange}
           />
         </label>
@@ -53,7 +55,7 @@ const AddPaymentPage = () => {
           Payment Amount :{" "}
           <input
             type="text"
-            name="Payment Amount"
+            name="payment_amount"
             value={formData.payment_amount}
             onChange={handleInputChange}
           />
@@ -62,8 +64,8 @@ const AddPaymentPage = () => {
           Payment Month:{" "}
           <input
             type="text"
-            name="Payment Month"
-            value={formData.payment_month}
+            name="month"
+            value={formData.month}
             onChange={handleInputChange}
           />
         </label>
@@ -71,8 +73,8 @@ const AddPaymentPage = () => {
           Payment Year:{" "}
           <input
             type="text"
-            name="Payment Year"
-            value={formData.payment_year}
+            name="year"
+            value={formData.year}
             onChange={handleInputChange}
           />
         </label>
@@ -80,12 +82,12 @@ const AddPaymentPage = () => {
           Payment Due Date:{" "}
           <input
             type="text"
-            name="Payment Due Date"
-            value={formData.payment_DueDate}
+            name="payment_due_date"
+            value={formData.payment_due_date}
             onChange={handleInputChange}
           />
         </label>
-        <button>Add Payment</button>
+        <button type="submit">Add Payment</button>
       </form>
     </div>
   );

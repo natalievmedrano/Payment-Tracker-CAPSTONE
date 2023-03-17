@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import AddPaymentPage from "./pages/AddPaymentPage/AddPaymentPage";
+import UpdatePaymentPage from "./pages/UpdatePaymentPage/UpdatePaymentPage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
@@ -37,6 +38,11 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/update" element={
+          <PrivateRoute><UpdatePaymentPage/></PrivateRoute>
+        }>
+          
+        </Route>
       </Routes>
       <Footer />
     </div>

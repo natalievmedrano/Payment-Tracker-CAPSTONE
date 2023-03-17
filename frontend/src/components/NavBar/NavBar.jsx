@@ -15,10 +15,7 @@ const Navbar = () => {
           <Link to="/" style={{ textDecoration: "none", color: "pink" }}>
             <b>INFINITY FINANCE</b>
           </Link>
-        </li> <div ><li className="pHistory">
-          <a href="">PAYMENT HISTORY</a>
-        </li> </div>
-        
+        </li> 
         <li>
           {user ? (
             <button onClick={logoutUser}>Logout</button>

@@ -47,7 +47,6 @@ const PaymentsTable = ({ payments = [] }) => {
           <div>
             <td onClick={handleClick} style={{color: active ? "green" : "red"}}>{payment.verify_payment}</td>
           </div>
-          <button className="update">update</button>
           <button className="delete">
             delete
           </button>

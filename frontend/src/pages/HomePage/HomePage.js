@@ -44,6 +44,7 @@ const HomePage = () => {
       <h1> Hello {user.username}!</h1>
       <Link to= "/addpayment"> Add Payment</Link>
       <PaymentsTable payments={payments}/>
+      <Link to="/updatepayment">Update Payment</Link>
     </div>
     </div>
   );
