@@ -19,8 +19,8 @@ li {
 }
 
 .navBar button {
-  background: transparent;
-  border: 2px solid white;
+  background: lightcoral;
+  border: 2px solid pink;
   color: white;
   padding: 0.4rem 0.5rem;
 }

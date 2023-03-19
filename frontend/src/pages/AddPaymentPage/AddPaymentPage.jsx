@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./AddPaymentPage.css";
 
 import useAuth from "../../hooks/useAuth";
 import useCustomForm from "../../hooks/useCustomForm";
 import { useNavigate } from "react-router-dom";
+import DatePicker from "react-date-picker";
 
 let initialValues = {
   payment_type: "",
@@ -15,6 +16,7 @@ let initialValues = {
 };
 
 const AddPaymentPage = () => {
+  const[date,setDate]= useState(new Date());
   const [user, token] = useAuth();
   const navigate = useNavigate();
   const [formData, handleInputChange, handleSubmit] = useCustomForm(
@@ -62,6 +64,7 @@ const AddPaymentPage = () => {
           value={formData.payment_amount}
           onChange={handleInputChange}
         />
+        {/* <DatePicker selected={date} onChange={date=> setDate(date)}/> */}
         </tr>
         <br/>
         <tr>
