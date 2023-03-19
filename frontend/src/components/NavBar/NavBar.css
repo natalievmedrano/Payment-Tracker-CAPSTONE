@@ -10,12 +10,12 @@ li {
 
 
 .navBar {
-  background:rgb(53, 53, 115);
+  background:#E7F8F5;
   box-shadow: 4px 2px 5px #c3073F;
-  color: white;
+  color: black;
   margin-bottom: 2rem;
   padding: 1.5rem 2rem;
-  text-shadow: 2px 4px blueviolet;
+  text-shadow: 2px 4px violet;
 }
 
 .navBar button {
