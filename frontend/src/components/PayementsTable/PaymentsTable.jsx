@@ -27,7 +27,7 @@ const PaymentsTable = ({ payments = [] }) => {
   let mappedPayments = filteredPayments.map((payment) => (
     <div className="flex">
       <Table striped bordered hover>
-        <thead>
+        <thead className="thead">
           <tr>
             <th>Payment Name</th>
             <th>Payment Amount</th>
