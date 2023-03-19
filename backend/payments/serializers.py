@@ -5,7 +5,7 @@ from .models import Payment
 class PaymentSerializer(serializers.ModelSerializer):
     class Meta:
         model= Payment
-        fields = ['username', 'month','year','payment_type','payment_amount','payment_due_date', 'verify_payment']
+        fields = ['id','username', 'month','year','payment_type','payment_amount','payment_due_date', 'verify_payment']
         depth = 1
 
     username= serializers.SerializerMethodField()

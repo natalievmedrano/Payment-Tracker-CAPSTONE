@@ -10,7 +10,7 @@ import AddPaymentPage from "./pages/AddPaymentPage/AddPaymentPage";
 import UpdatePaymentPage from "./pages/UpdatePaymentPage/UpdatePaymentPage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
-import Footer from "./components/Footer/Footer";
+
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -44,7 +44,7 @@ function App() {
           
         </Route>
       </Routes>
-      <Footer />
+     
     </div>
   );
 }

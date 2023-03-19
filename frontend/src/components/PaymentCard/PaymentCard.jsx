@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { Card } from "react-bootstrap";
+import './PaymentCard.css'
 
-const PaymentCard = ({}) => {
-  return <Card>
-    <Card.Body>
-        <Card.Title>
-            <div>
-                PAYMENT NAME
-            </div>
-            <div>
-                Payment Amount
-            </div>
-        </Card.Title>
-    </Card.Body>
-  </Card>;
+const PaymentCard = ({payment,activePaymentId, setActivePaymentId}) => {
+  function handleClick(){
+    setActivePaymentId(payment.id)
+}
+
+let cardClass= ''
+if(payment.id === activePaymentId) cardClass= 'active';
+
+ return(<div className={cardClass} onClick={handleClick}>
+  <h4>{payment.month}</h4>
+  <p>payment type</p>
+ </div>)
 };
 
 export default PaymentCard;

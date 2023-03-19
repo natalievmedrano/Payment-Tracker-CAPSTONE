@@ -33,7 +33,7 @@ button:hover {
   background-color: #cf9c9c;
 }
 body{
-  background-color: #38534E;
+  background-color: white;
 }
 .container {
   margin:0;
@@ -50,7 +50,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 1rem;
+  gap: 5rem;
 }
 
 .form input {
