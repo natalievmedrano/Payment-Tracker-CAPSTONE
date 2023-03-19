@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import './AddPaymentPage.css'
 
 import useAuth from "../../hooks/useAuth";
 import useCustomForm from "../../hooks/useCustomForm";
@@ -16,17 +17,15 @@ let intialPaymentInfo = {
 const AddPaymentPage = () => {
   const [user, token] = useAuth();
   const navigate = useNavigate();
-  const [formData, handleInputChange,handleSubmit] = useCustomForm(
+  const [formData, handleInputChange, handleSubmit] = useCustomForm(
     intialPaymentInfo,
     addPayment
   );
 
-
-
   async function addPayment() {
     try {
       let response = await axios.post(
-        "http://127.0.0.1:8000/api/",
+        "http://127.0.0.1:8000/api/payments/",
         formData,
         {
           headers: {
@@ -42,51 +41,42 @@ const AddPaymentPage = () => {
   return (
     <div className="container">
       <form className="payementForm" onSubmit={handleSubmit}>
-        <label>
-          Payment Name:{" "}
           <input
+            placeholder="Enter Payment Name"
             type="text"
             name="payment_type"
             value={formData.payment_type}
             onChange={handleInputChange}
           />
-        </label>
-        <label>
-          Payment Amount :{" "}
           <input
+            placeholder="Enter Payment Amount"
             type="text"
             name="payment_amount"
             value={formData.payment_amount}
             onChange={handleInputChange}
           />
-        </label>
-        <label>
-          Payment Month:{" "}
           <input
+            placeholder="Enter Payment Month"
             type="text"
             name="month"
             value={formData.month}
             onChange={handleInputChange}
           />
-        </label>
-        <label>
-          Payment Year:{" "}
           <input
+            placeholder="Enter Payment Year"
             type="text"
             name="year"
             value={formData.year}
             onChange={handleInputChange}
           />
-        </label>
-        <label>
-          Payment Due Date:{" "}
+
           <input
+            placeholder="Enter Payment Due Date"
             type="text"
             name="payment_due_date"
             value={formData.payment_due_date}
             onChange={handleInputChange}
           />
-        </label>
         <button type="submit">Add Payment</button>
       </form>
     </div>

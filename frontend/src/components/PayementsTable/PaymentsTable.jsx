@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import SearchBar from "../Searchbar/SearchBar";
+import { Table } from "react-bootstrap";
 
 import "./PaymentsTable.css";
 
@@ -25,7 +26,7 @@ const PaymentsTable = ({ payments = [] }) => {
 
   let mappedPayments = filteredPayments.map((payment) => (
     <div className="flex">
-      <table>
+      <Table>
         <thead>
           <tr>
             <th>Payment Name</th>
@@ -52,7 +53,7 @@ const PaymentsTable = ({ payments = [] }) => {
             delete
           </button>
         </tbody>
-      </table>
+      </Table>
     </div>
   ));
 

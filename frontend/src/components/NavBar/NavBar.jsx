@@ -12,7 +12,7 @@ const Navbar = () => {
     <div className="navBar">
       <ul>
         <li className="brand">
-          <Link to="/" style={{ textDecoration: "none", color: "pink" }}>
+          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
             <b>INFINITY FINANCE</b>
           </Link>
         </li> 

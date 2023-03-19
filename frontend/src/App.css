@@ -10,7 +10,7 @@
 
 html {
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: sans-serif;
 }
 
 p {
@@ -33,7 +33,7 @@ button:hover {
   background-color: #cf9c9c;
 }
 body{
-  background-color: #AA7d7d;
+  background-color: #38534E;
 }
 .container {
   margin:0;
