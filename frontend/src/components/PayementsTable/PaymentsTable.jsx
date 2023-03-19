@@ -26,7 +26,7 @@ const PaymentsTable = ({ payments = [] }) => {
 
   let mappedPayments = filteredPayments.map((payment) => (
     <div className="flex">
-      <Table>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>Payment Name</th>
@@ -36,19 +36,11 @@ const PaymentsTable = ({ payments = [] }) => {
           </tr>
         </thead>
         <tbody>
-          <div>
             {" "}
             <td>{payment.payment_type}</td>
-          </div>
-          <div>
             <td>{payment.payment_amount}</td>
-          </div>
-          <div>
             <td>{payment.payment_due_date}</td>
-          </div>
-          <div>
             <td onClick={handleClick} style={{color: active ? "green" : "red"}}>{payment.verify_payment}</td>
-          </div>
           <button className="submit" >
             delete
           </button>
