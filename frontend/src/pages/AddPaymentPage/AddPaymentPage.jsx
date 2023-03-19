@@ -41,13 +41,20 @@ const AddPaymentPage = () => {
   return (
     <div className="container">
       <form className="payementForm" onSubmit={handleSubmit}>
+        <h2>Enter Payment Information here!</h2>
+        <br />
+        <tr>
         <input
           placeholder="Enter Payment Name"
           type="text"
           name="payment_type"
           value={formData.payment_type}
           onChange={handleInputChange}
-        />
+          />
+          </tr>
+          <tr>
+            <br/>
+            
         <input
           placeholder="Enter Payment Amount"
           type="text"
@@ -55,6 +62,9 @@ const AddPaymentPage = () => {
           value={formData.payment_amount}
           onChange={handleInputChange}
         />
+        </tr>
+        <br/>
+        <tr>
         <input
           placeholder="Enter Payment Month"
           type="text"
@@ -62,6 +72,9 @@ const AddPaymentPage = () => {
           value={formData.month}
           onChange={handleInputChange}
         />
+        </tr>
+        <br />
+        <tr>
         <input
           placeholder="Enter Payment Year"
           type="text"
@@ -69,7 +82,9 @@ const AddPaymentPage = () => {
           value={formData.year}
           onChange={handleInputChange}
         />
-
+        </tr>
+        <br />
+        <tr>
         <input
           placeholder="Enter Payment Due Date"
           type="text"
@@ -77,7 +92,10 @@ const AddPaymentPage = () => {
           value={formData.payment_due_date}
           onChange={handleInputChange}
         />
-        <button type="submit">Add Payment</button>
+        </tr>
+    
+        <button type="submit" onSubmit={handleSubmit}>Add Payment</button>
+      
       </form>
     </div>
   );
