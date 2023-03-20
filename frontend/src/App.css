@@ -47,6 +47,7 @@ body{
   margin-right: auto;
   word-spacing: 5px;
   justify-content: center;
+  overflow: hidden;
 }
 .flex{
   display: flex;

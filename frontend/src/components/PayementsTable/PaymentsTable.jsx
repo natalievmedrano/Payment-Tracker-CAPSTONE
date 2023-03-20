@@ -6,6 +6,7 @@ import { Table } from "react-bootstrap";
 import useAuth from "../../hooks/useAuth"
 
 import "./PaymentsTable.css";
+import MoneyTracker from "../MoneyTracker/MoneyTracker";
 
 const PaymentsTable = ({ payments = [] , id}) => {
   const[user, token]= useAuth()
@@ -25,13 +26,11 @@ const PaymentsTable = ({ payments = [] , id}) => {
           Authorization: 'Bearer ' + token
         }
       }
-    );
+      );
   }
 
 
-  async function updatePayments(){
-    let response = await axios.put('http://127.0.0.1:8000/api/payments/1/')
-  }
+
 
   let mappedPayments = filteredPayments.map((payment) => (
     <div className="flex">
@@ -73,6 +72,7 @@ const PaymentsTable = ({ payments = [] , id}) => {
         onSubmit={handleSearch}
       />{" "}
       {mappedPayments}
+      <MoneyTracker/>
     </div>
   );
 };
