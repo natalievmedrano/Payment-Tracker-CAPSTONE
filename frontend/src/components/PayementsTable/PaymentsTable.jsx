@@ -3,10 +3,12 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import SearchBar from "../Searchbar/SearchBar";
 import { Table } from "react-bootstrap";
+import useAuth from "../../hooks/useAuth"
 
 import "./PaymentsTable.css";
 
-const PaymentsTable = ({ payments = [] }) => {
+const PaymentsTable = ({ payments = [] , id}) => {
+  const[user, token]= useAuth()
   const [searchKeyword, setSearchKeyword] = useState("");
   const [filteredPayments, setFilteredPayments] = useState(payments);
   const [active, setActive] = useState(false);
@@ -16,13 +18,15 @@ const PaymentsTable = ({ payments = [] }) => {
     setActive(!active);
   };
 
-  // async function deletePayments(id) {
-  //   let response = await axios.delete(
-  //     `http://127.0.0.1:8000/api/payments/${id}/`
-  //   );
-  //   console.log("DELETED:", response.data);
-  //   setDeletedPayments(response.data);
-  // }
+  async function deletePayments() {
+    let response = await axios.delete(
+      'http://127.0.0.1:8000/api/payments/21/', {
+        headers: {
+          Authorization: 'Bearer ' + token
+        }
+      }
+    );
+  }
 
   let mappedPayments = filteredPayments.map((payment) => (
     <div className="flex">
@@ -41,7 +45,7 @@ const PaymentsTable = ({ payments = [] }) => {
             <td>{payment.payment_amount}</td>
             <td>{payment.payment_due_date}</td>
             <td onClick={handleClick} style={{color: active ? "green" : "red"}}>{payment.verify_payment}</td>
-          <button className="submit" >
+          <button className="submit" onClick={deletePayments} >
             delete
           </button>
         </tbody>

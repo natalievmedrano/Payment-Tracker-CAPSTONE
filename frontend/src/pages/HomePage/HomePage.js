@@ -8,6 +8,7 @@ import axios from "axios";
 import SideBar from "../../components/SideBar/SideBar";
 import PaymentCard from "../../components/PaymentCard/PaymentCard";
 import PaymentsTable from "../../components/PayementsTable/PaymentsTable";
+import SideBarPage from "../SideBar/SideBarPage";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -44,7 +45,6 @@ const HomePage = () => {
       <h1> Hello {user.username}!</h1>
       <Link to= "/addpayment"> Add Payment</Link>
       <PaymentsTable payments={payments}/>
-      <Link to="/updatepayment">Update Payment</Link>
     </div>
     </div>
   );

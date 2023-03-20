@@ -14,6 +14,7 @@ import Navbar from "./components/NavBar/NavBar";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import SideBar from "./components/SideBar/SideBar";
 
 function App() {
   return (
