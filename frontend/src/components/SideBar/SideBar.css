@@ -1,6 +1,6 @@
-.sideabar{
-    background-color:slategray;
-    color: white;
+.sidebar{
+    background-color:gray;
+    color: black;
     height: 700px;
 width: 200px;
 position: sticky;
@@ -11,4 +11,5 @@ display: block;
 justify-content: end;
 border-top: auto;
 word-spacing: 15px;
+margin-bottom: 0;
 }
