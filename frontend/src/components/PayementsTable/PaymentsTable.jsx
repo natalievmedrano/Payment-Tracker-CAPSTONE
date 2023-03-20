@@ -28,6 +28,11 @@ const PaymentsTable = ({ payments = [] , id}) => {
     );
   }
 
+
+  async function updatePayments(){
+    let response = await axios.put('http://127.0.0.1:8000/api/payments/1/')
+  }
+
   let mappedPayments = filteredPayments.map((payment) => (
     <div className="flex">
       <Table striped bordered hover>
