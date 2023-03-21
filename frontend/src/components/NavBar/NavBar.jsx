@@ -13,7 +13,7 @@ const Navbar = () => {
       <ul>
         <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-            <b>INFINITY FINANCE</b>
+            <b>PAY DAY</b>
           </Link>
         </li> 
         <li>
