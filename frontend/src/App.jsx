@@ -45,7 +45,7 @@ function App() {
         }>
           
         </Route>
-        <Route path="/january" element={<January/>}></Route>
+        <Route path="/history" element={<January/>}></Route>
       </Routes>
      
     </div>

@@ -26,7 +26,7 @@ const January = () => {
             );
             //console.log(response.data);
             setNewPayments(response.data);
-            navigate("/january")
+            navigate("/history")
           } catch (error) {
             console.log(error.message);
           }
@@ -60,7 +60,7 @@ const January = () => {
       ))
 
       const filteredJanuary = newPayments.filter(payment => payment.month.includes('january' || 'January'))
-    return ( <div> {mappedJanuary}</div> );
+    return ( <div id="jan-table"> {mappedJanuary}</div> );
 }
  
 export default January;

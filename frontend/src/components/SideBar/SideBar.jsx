@@ -71,50 +71,55 @@ const SideBar = ({}) => {
 
       <div onClick={handleClick}>
         <li>
-          <a href="/january">2021</a>
+          <a href="/history">2021</a>
         </li>
         <li>
-          <button onClick={(event) => handleClick()}>2022</button>
+          <a href="/history">2022</a>
         </li>
         <li>
-          <button onClick={(event) => handleClick()}>2023</button>
+          <a href="/history">2023</a>
         </li>
         <li>
-          <button onClick={(event) => handleClick()}>January</button>
+          <a href="/history">2023</a>
         </li>
         <li>
-          <button onClick={(event) => handleClick()}>February</button>
+          <a href="/history">January</a>
         </li>
         <li>
-          <button onClick={(event) => handleClick()}>March</button>
+          <a href="/history">February</a>
         </li>
         <li>
-          <button onClick={(event) => handleClick()}>April</button>
+          <a href="/history">March</a>
         </li>
         <li>
-          <button onClick={(event) => handleClick()}>May</button>
+          <a href="/history">April</a>
         </li>
         <li>
-          <button onClick={(event) => handleClick()}>June</button>
+          <a href="/history">May</a>
         </li>
         <li>
-          <button onClick={(event) => handleClick()}>July</button>
+          <a href="/history">June</a>
         </li>
         <li>
-          <button onClick={(event) => handleClick()}>August</button>
+          <a href="/history">July</a>
         </li>
         <li>
-          <button onClick={(event) => handleClick()}>September</button>
+          <a href="/history">August</a>
         </li>
         <li>
-          <button onClick={(event) => handleClick()}>October</button>
+          <a href="/history">September</a>
         </li>
         <li>
-          <button onClick={(event) => handleClick()}>November</button>
+          <a href="/history">October</a>
         </li>
         <li>
-          <button onClick={(event) => handleClick()}>December</button>
+          <a href="/history">November</a>
         </li>
+        <li>
+          <a href="/history">December</a>
+        </li>
+       
+
       </div>
     </section>
   );
