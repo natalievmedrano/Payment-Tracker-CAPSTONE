@@ -32,7 +32,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
-          path="/addpayment"
+          path="/payments"
           element={
             <PrivateRoute>
               <AddPaymentPage />

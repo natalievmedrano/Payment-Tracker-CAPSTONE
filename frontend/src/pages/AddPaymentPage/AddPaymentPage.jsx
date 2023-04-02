@@ -5,7 +5,7 @@ import "./AddPaymentPage.css";
 import useAuth from "../../hooks/useAuth";
 import useCustomForm from "../../hooks/useCustomForm";
 import { useNavigate } from "react-router-dom";
-import DatePicker from "react-date-picker";
+//import DatePicker from "react-date-picker";
 
 let initialValues = {
   payment_type: "",
@@ -31,7 +31,7 @@ const AddPaymentPage = () => {
         formData,
         {
           headers: {
-            Authorization: "Bearer " + token,
+            Authorization: 'Bearer ' + token,
           }
         }
       );
