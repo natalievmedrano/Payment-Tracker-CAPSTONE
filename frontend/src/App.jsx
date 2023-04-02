@@ -15,6 +15,7 @@ import Navbar from "./components/NavBar/NavBar";
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
 import SideBar from "./components/SideBar/SideBar";
+import January from "./pages/January/January";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         }>
           
         </Route>
+        <Route path="/january" element={<January/>}></Route>
       </Routes>
      
     </div>

@@ -3,11 +3,12 @@ import "./SideBar.css";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { Table } from "react-bootstrap";
+import PaymentCard from "../PaymentCard/PaymentCard";
 
 const SideBar = ({}) => {
   const [user, token] = useAuth();
   const [payments, setNewPayments] = useState([]);
-  const [sideBar, setSideBar] = useState(payments);
+  const [sideBar, setSideBar] = useState([payments]);
 
   useEffect(() => {
     const fetchPayments = async () => {
@@ -20,7 +21,7 @@ const SideBar = ({}) => {
             },
           }
         );
-        console.log(response.data);
+        //console.log(response.data);
         setNewPayments(response.data);
       } catch (error) {
         console.log(error.message);
@@ -31,7 +32,10 @@ const SideBar = ({}) => {
 
   const mappedPayments = payments.map((payment) => (
     <div>
+     return
+
       <Table>
+
         <thead>
           <tr>
             <th>PAYMENT NAME</th>
@@ -45,16 +49,19 @@ const SideBar = ({}) => {
             <td>{payment.payment_type}</td>
             <td>{payment.payment_amount}</td>
             <td>{payment.payment_due_date}</td>
+            <td>{payment.verify_payment}</td>
           </tr>
         </tbody>
       </Table>
     </div>
   ));
 
+
+
   const handleClick = () => {
-    const sidebarPayments = payments.filter(
-      (payment) => payment.month === payment.month
-    );
+    const sidebarPayments = payments.map((payment)=>{
+      return <div>{payment.month}</div>
+    });
     console.log(sideBar);
     setSideBar(sidebarPayments);
   };
@@ -62,51 +69,51 @@ const SideBar = ({}) => {
     <section className="sidebar">
       <h2>PAYMENT HISTORY</h2>
 
-      <div>
+      <div onClick={handleClick}>
         <li>
-          <a onClick={(event) => handleClick()}>2021</a>
+          <a href="/january">2021</a>
         </li>
         <li>
-          <a onClick={(event) => handleClick()}>2022</a>
+          <button onClick={(event) => handleClick()}>2022</button>
         </li>
         <li>
-          <a onClick={(event) => handleClick()}>2023</a>
+          <button onClick={(event) => handleClick()}>2023</button>
         </li>
         <li>
-          <a onClick={(event) => handleClick()}>January</a>
+          <button onClick={(event) => handleClick()}>January</button>
         </li>
         <li>
-          <a onClick={(event) => handleClick()}>February</a>
+          <button onClick={(event) => handleClick()}>February</button>
         </li>
         <li>
-          <a onClick={(event) => handleClick()}>March</a>
+          <button onClick={(event) => handleClick()}>March</button>
         </li>
         <li>
-          <a onClick={(event) => handleClick()}>April</a>
+          <button onClick={(event) => handleClick()}>April</button>
         </li>
         <li>
-          <a onClick={(event) => handleClick()}>May</a>
+          <button onClick={(event) => handleClick()}>May</button>
         </li>
         <li>
-          <a onClick={(event) => handleClick()}>June</a>
+          <button onClick={(event) => handleClick()}>June</button>
         </li>
         <li>
-          <a onClick={(event) => handleClick()}>July</a>
+          <button onClick={(event) => handleClick()}>July</button>
         </li>
         <li>
-          <a onClick={(event) => handleClick()}>August</a>
+          <button onClick={(event) => handleClick()}>August</button>
         </li>
         <li>
-          <a onClick={(event) => handleClick()}>September</a>
+          <button onClick={(event) => handleClick()}>September</button>
         </li>
         <li>
-          <a onClick={(event) => handleClick()}>October</a>
+          <button onClick={(event) => handleClick()}>October</button>
         </li>
         <li>
-          <a onClick={(event) => handleClick()}>November</a>
+          <button onClick={(event) => handleClick()}>November</button>
         </li>
         <li>
-          <a onClick={(event) => handleClick()}>December</a>
+          <button onClick={(event) => handleClick()}>December</button>
         </li>
       </div>
     </section>
