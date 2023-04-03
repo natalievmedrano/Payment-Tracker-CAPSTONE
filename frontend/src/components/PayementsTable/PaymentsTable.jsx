@@ -13,6 +13,7 @@ const PaymentsTable = ({ payments = [], id }) => {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [filteredPayments, setFilteredPayments] = useState(payments);
   const [active, setActive] = useState(false);
+ // const[form, setForm] = useState()
   //const[deletedPayments, setDeletedPayments]= useState=([])
 
   const handleClick = () => {
