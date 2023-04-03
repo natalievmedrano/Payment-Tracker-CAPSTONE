@@ -13,7 +13,7 @@ const PaymentsTable = ({ payments = [], id }) => {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [filteredPayments, setFilteredPayments] = useState(payments);
   const [active, setActive] = useState(false);
-  //const[deletePayments, setDeletedPayments]= useState=(payments)
+  //const[deletedPayments, setDeletedPayments]= useState=([])
 
   const handleClick = () => {
     setActive(!active);
@@ -29,6 +29,7 @@ const PaymentsTable = ({ payments = [], id }) => {
       }
       );
       console.log("Payment deleted", response)
+      //setDeletedPayments(response)
   }
 
   // function handleDelete(id){
@@ -61,9 +62,10 @@ const PaymentsTable = ({ payments = [], id }) => {
             </td>
             <td>
               <button type="button">edit</button>
-              <button className="submit" type="button" onClick={(event) => deletePayments(payment.id, event)}>
+              <button className="submit" type="button" onClick={(event) => deletePayments(payment.id, event)}>  
                 delete
               </button>
+              {/* delete button works you just need to refresh page for it to disapper! */}
             </td>
           </tr>
         </tbody>
