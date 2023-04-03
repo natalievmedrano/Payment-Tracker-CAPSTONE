@@ -19,7 +19,7 @@ li {
 }
 
 .navBar button {
-  background: lightcoral;
+  background: rgb(88, 44, 44);
   border: 2px solid pink;
   color: white;
   padding: 0.4rem 0.5rem;
