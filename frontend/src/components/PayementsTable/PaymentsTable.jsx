@@ -19,15 +19,17 @@ const PaymentsTable = ({ payments = [], id }) => {
     setActive(!active);
   };
 
-  // async function deletePayments() {
-  //   let response = await axios.delete(
-  //     'http://127.0.0.1:8000/api/payments/21/', {
-  //       headers: {
-  //         Authorization: 'Bearer ' + token
-  //       }
-  //     }
-  //     );
-  // }
+  async function deletePayments(id, event) {
+    event.preventDefault();
+    let response = await axios.delete(
+      `http://127.0.0.1:8000/api/payments/${id}/`, {
+        headers: {
+          Authorization: 'Bearer ' + token
+        }
+      }
+      );
+      console.log("Payment deleted", response)
+  }
 
   // function handleDelete(id){
   //   const deletePayment = payments.filter(payment => payment.id !== id)
@@ -59,7 +61,7 @@ const PaymentsTable = ({ payments = [], id }) => {
             </td>
             <td>
               <button type="button">edit</button>
-              <button className="submit" type="button">
+              <button className="submit" type="button" onClick={(event) => deletePayments(payment.id, event)}>
                 delete
               </button>
             </td>
@@ -75,6 +77,9 @@ const PaymentsTable = ({ payments = [], id }) => {
     );
     setFilteredPayments(newFilteredPayments);
   };
+
+
+
 
   return (
     <div>
