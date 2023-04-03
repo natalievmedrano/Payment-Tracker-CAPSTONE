@@ -43,7 +43,7 @@ const HomePage = () => {
 
     <div className="container">
       <h1> Hello {user.username}!</h1>
-      <Link to= "/payments"> Add Payment</Link>
+      <Link to= "/addpayment"> Add Payment</Link>
       <PaymentsTable payments={payments}/>
     </div>
     </div>
