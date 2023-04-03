@@ -17,16 +17,20 @@ def get_all_payments(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-@api_view(['POST'])
+@api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def user_payments(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
+        payments = Payment.objects.all()
+        serializer = PaymentSerializer(payments, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    elif request.method == 'POST':
         serializer = PaymentSerializer(data=request.data)
-        if serializer.is_valid():
+        if serializer.is_valid() == True:
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+        else:
+            return Response(serializer.errors)
 
 @api_view(['GET', 'PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
